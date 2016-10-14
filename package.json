@@ -23,8 +23,8 @@
     "webdriver-manager": "webdriver-manager",
     "protractor": "protractor",
 
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage dist",
-      "clean:dist": "npm run rimraf -- dist",
+    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage public",
+      "clean:public": "npm run rimraf -- public",
         "preclean:install": "npm run clean",
       "clean:install": "npm set progress=false && npm install",
         "preclean:start": "npm run clean",
@@ -37,15 +37,15 @@
       "watch:prod": "npm run build:prod -- --watch",
 
     "build": "npm run build:dev",
-        "prebuild:dev": "npm run clean:dist",
+        "prebuild:dev": "npm run clean:public",
       "build:dev": "webpack --config config/webpack.dev.js --progress --profile --colors --display-error-details --display-cached",
-        "prebuild:prod": "npm run clean:dist",
+        "prebuild:prod": "npm run clean:public",
       "build:prod": "webpack --config config/webpack.prod.config.js --progress --profile --colors --display-error-details --display-cached --bail",
 
     "server": "npm run server:dev",
       "server:dev": "webpack-dev-server --inline --progress --profile --colors --watch --display-error-details --display-cached  --content-base src/",
       "server:dev:hmr": "npm run server:dev -- --hot",
-      "server:prod": "./node_modules/.bin/http-server dist --cors",
+      "server:prod": "./node_modules/.bin/http-server public --cors",
 
     "webdriver:update": "npm run webdriver-manager update",
     "webdriver:start": "npm run webdriver-manager start",
