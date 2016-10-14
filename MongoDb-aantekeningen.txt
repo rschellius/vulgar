@@ -1,0 +1,27 @@
+//
+// Database maken in MongoDB en een user maken op die database:
+//
+// vanaf command line:
+mongo
+use vulgar
+db.createUser(
+    {
+      user: "rschellius",
+      pwd: "secret",
+      roles: [{ role: "readWrite", db: "vulgar" }]
+    }
+)
+exit
+// 
+// Daarna kun je inloggen in de database met de gemaakte user:
+// 
+mongo --host 127.0.0.1 --port 27017 -u rschellius -p secret vulgar
+
+//
+// Op externe host inloggen
+// 
+mongo --host 192.168.59.103 --port 27017 -u drywall -p angular drywall-angular
+
+// Om een file met dummydata in te lezen:
+mongoimport --host 192.168.59.103 --db test --collection restaurants --drop --file primer-dataset.json
+mongoimport --host 192.168.59.103 --db drywall-angular --collection restaurants --drop -u drywall -p angular --file primer-dataset.json
