@@ -77,8 +77,9 @@ export default (app, router, passport) => {
   // Route to handle all Angular requests
   app.get('*', (req, res) => {
 
+  	console.log("Path to index.html = " + process.cwd() + "/../public/index.html");
     // Load our src/app.html file
     //** Note that the root is set to the parent of this folder, ie the app root **
-    res.sendFile('/public/index.html', { root: __dirname + "/../../"});
+    res.sendFile('/public/index.html', { root: process.cwd() + "/../"});
   });
 };
