@@ -7,12 +7,12 @@
  * -- Do leave one whitespace character inside of the import statements' curly braces when destructuring.
  * -- Why? Whitespace makes it easier to read the imports.
  */
-
+ 
 import * as ts from 'typescript';
 import * as Lint from 'tslint/lib/lint';
 
 export class Rule extends Lint.Rules.AbstractRule {
-  public static FAILURE_STRING = "Style 03-05 Import Destructuring Spacing";
+  public static FAILURE_STRING = 'You need to leave whitespaces inside of the import statement\'s curly braces ($$03-05$$)';
 
   public apply(sourceFile: ts.SourceFile): Lint.RuleFailure[] {
     return this.applyWithWalker(new ImportDestructuringSpacingWalker(sourceFile, this.getOptions()));
@@ -34,7 +34,8 @@ class ImportDestructuringSpacingWalker extends Lint.SkippableTokenAwareRuleWalke
       const text = importClause.namedBindings.getText();
 
       if (!this.checkForWhiteSpace(text)) {
-        this.addFailure(this.createFailure(importClause.namedBindings.getStart(), importClause.namedBindings.getWidth(), Rule.FAILURE_STRING));
+        this.addFailure(this.createFailure(importClause.namedBindings.getStart(),
+          importClause.namedBindings.getWidth(), Rule.FAILURE_STRING));
       }
     }
     // call the base version of this visitor to actually parse this node
@@ -42,6 +43,9 @@ class ImportDestructuringSpacingWalker extends Lint.SkippableTokenAwareRuleWalke
   }
 
   private checkForWhiteSpace(text: string) {
+    if (/\s*\*\s+as\s+[^\s]/.test(text)) {
+      return true;
+    }
     return /{\s[^]*\s}/.test(text);
   }
 }

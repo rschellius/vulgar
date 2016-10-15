@@ -3,11 +3,11 @@ import {
   inject,
   injectAsync,
   describe,
-  beforeEachProviders,
-  TestComponentBuilder
+  beforeEachProviders
 } from '@angular/core/testing';
+//   TestComponentBuilder
 
-import {TestComponentBuilder} from '@angular/compiler/testing';
+// import {TestComponentBuilder} from '@angular/compiler/testing';
 
 import {Component, provide} from '@angular/core';
 

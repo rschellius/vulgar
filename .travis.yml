@@ -1,10 +1,24 @@
 language: node_js
 node_js:
+  # the nodejs versions that we want to check the application on
   - node
-  - "5"
-  - "4"
+  - "6"
+  - "6.1.x"
+  - "5.11"
+env:
+  # required environment settings  
+  - NPM_CONFIG_PRODUCTION=true
+  - NODE_ENV=production
+  - NODE_MODULES_CACHE=true
+before_install:
+  # do something before installing
+  - npm install -g tslint typescript lint
+install:
+  - npm install
 sudo: false
 branches:
-only:
-  - master
-script: npm test
+  only:
+    - master
+script:
+  # the test that we run - defined in package.json
+  - npm run lint

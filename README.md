@@ -18,7 +18,9 @@ Good Reading
 Demo
 --------------------
 A deployed version of this application is on [Heroku](http://angular2mean.herokuapp.com). 
-Check the nodejs server recipe api on [Heroku](http://angular2mean.herokuapp.com/api/recipe). 
+Check the nodejs server recipe api via [this link](http://angular2mean.herokuapp.com/api/recipe).
+
+The mongodb database is hosted at [mLab](https://www.mlab.com/).
 
 Prerequisites
 -------------
@@ -92,6 +94,21 @@ Open a second command line terminal.
 ```
 cd [cloned repo]
 gulp serve
+```
+
+Cleanup and rebuilding 
+--------------------
+
+To do a fresh restart and run all commands in one line, type
+
+```
+npm run clean & npm install & node server.js
+```
+
+This requires `rimraf` (a tool to rm -rf). Run 
+
+```
+npm install rimraf -g
 ```
 
 Deploying to Heroku

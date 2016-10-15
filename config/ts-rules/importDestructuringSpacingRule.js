@@ -18,7 +18,7 @@ var Rule = (function (_super) {
     Rule.prototype.apply = function (sourceFile) {
         return this.applyWithWalker(new ImportDestructuringSpacingWalker(sourceFile, this.getOptions()));
     };
-    Rule.FAILURE_STRING = "Style 03-05 Import Destructuring Spacing";
+    Rule.FAILURE_STRING = 'You need to leave whitespaces inside of the import statement\'s curly braces ($$03-05$$)';
     return Rule;
 }(Lint.Rules.AbstractRule));
 exports.Rule = Rule;
@@ -41,6 +41,9 @@ var ImportDestructuringSpacingWalker = (function (_super) {
         _super.prototype.visitImportDeclaration.call(this, node);
     };
     ImportDestructuringSpacingWalker.prototype.checkForWhiteSpace = function (text) {
+        if (/\s*\*\s+as\s+[^\s]/.test(text)) {
+            return true;
+        }
         return /{\s[^]*\s}/.test(text);
     };
     return ImportDestructuringSpacingWalker;

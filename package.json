@@ -23,7 +23,9 @@
     "webdriver-manager": "webdriver-manager",
     "protractor": "protractor",
 
-    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage dist",
+	"lint": "tslint ./src/**/*.ts -t verbose",
+
+    "clean": "npm cache clean && npm run rimraf -- node_modules doc typings coverage dist ./src/**/*.js ./src/**/*.map",
       "clean:dist": "npm run rimraf -- dist",
         "preclean:install": "npm run clean",
       "clean:install": "npm set progress=false && npm install",
@@ -51,8 +53,6 @@
     "webdriver:start": "npm run webdriver-manager start",
 
     "fix:line-endings": "find . \\( -type f -and -not -path '*/node_modules/*' \\) -exec dos2unix {} \\;",
-
-    "lint": "npm run tslint src/**/*.ts",
 
       "pree2e": "npm run webdriver:update -- --standalone",
     "e2e": "npm run protractor",
