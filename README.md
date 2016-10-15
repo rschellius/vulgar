@@ -17,15 +17,16 @@ Good Reading
 
 Demo
 --------------------
-A deployed version of the nodejs server is on [Heroku](http://angular2mean.herokuapp.com/api/recipe). 
+A deployed version of this application is on [Heroku](http://angular2mean.herokuapp.com). 
+Check the nodejs server recipe api on [Heroku](http://angular2mean.herokuapp.com/api/recipe). 
 
 Prerequisites
 -------------
 
-- NodeJs, latest version
+- nodejs
 - MongoDB
 
-**Verify that you are running at least node `v4.x.x` and npm `3.x.x`**
+**Verify that you are running at least node `v6.8.x` and npm `3.x.x`**
 by running `node -v` and `npm -v` in a terminal/console window.
 Older versions produce errors.
 
@@ -82,7 +83,7 @@ To do a fresh restart and run all commands in one line, type
 rm -rf node_modules dist typings & npm install & node server.js
 ```
 
-Your app is running at [http://localhost:3000](http://localhost:3000).
+Your application is running at [http://localhost:3000](http://localhost:3000).
 
 
 This next step should not be neccessary. 
