@@ -33,7 +33,7 @@ Setting up the mongodb database
 -------------
 The database settings are stored in this application's config.json file in the config folder. Adapt these to your own settings
 
-To create a database and user, open a command terminal and type
+To create a database (named 'vulgar' here) and user, open a command terminal and type
 
 ```
 mongo
@@ -41,7 +41,7 @@ use vulgar
 db.createUser({
       user: "your_username",
       pwd: "secret",
-      roles: [{ role: "readWrite", db: "your_database_name" }]
+      roles: [{ role: "readWrite", db: "vulgar" }]
 })
 exit
 ```
@@ -49,7 +49,7 @@ exit
 Login to the database to verify:
 
 ```
-mongo --host 127.0.0.1 --port 27017 -u your_username -p secret your_database_name
+mongo --host 127.0.0.1 --port 27017 -u your_username -p secret vulgar
 ```
 
 Building the project
@@ -72,19 +72,32 @@ cd [cloned repo]
 Run the project with:
 
 ```
-npm install -g typings webpack webpack-dev-server concurrently
 npm install
-npm run build
-npm start
+npm start 	// or node server.js
+```
+
+To do a fresh restart and run all commands in one line, type
+
+```
+rm -rf node_modules dist typings & npm install & node server.js
 ```
 
 Your app is running at [http://localhost:3000](http://localhost:3000).
 
 
-This next step may not be neccessary. 
+This next step should not be neccessary. 
 Open a second command line terminal.
 
 ```
 cd [cloned repo]
 gulp serve
+```
+
+Deploying to Heroku
+--------------------
+In production, your package.json's devDependencies will not be installed, so these packages will be missing.
+Verify that your local project builds on production with
+
+```
+rm -rf node_modules dist typings & npm install --quiet --production
 ```

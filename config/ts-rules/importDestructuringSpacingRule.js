@@ -7,11 +7,7 @@
  * -- Do leave one whitespace character inside of the import statements' curly braces when destructuring.
  * -- Why? Whitespace makes it easier to read the imports.
  */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
+"use strict";
 var ts = require('typescript');
 var Lint = require('tslint/lib/lint');
 var Rule = (function (_super) {
@@ -24,7 +20,7 @@ var Rule = (function (_super) {
     };
     Rule.FAILURE_STRING = "Style 03-05 Import Destructuring Spacing";
     return Rule;
-})(Lint.Rules.AbstractRule);
+}(Lint.Rules.AbstractRule));
 exports.Rule = Rule;
 // The walker takes care of all the work.
 var ImportDestructuringSpacingWalker = (function (_super) {
@@ -48,4 +44,5 @@ var ImportDestructuringSpacingWalker = (function (_super) {
         return /{\s[^]*\s}/.test(text);
     };
     return ImportDestructuringSpacingWalker;
-})(Lint.SkippableTokenAwareRuleWalker);
+}(Lint.SkippableTokenAwareRuleWalker));
+//# sourceMappingURL=importDestructuringSpacingRule.js.map
