@@ -67,7 +67,7 @@
 
     "start": "concurrently --kill-others --raw \"npm run server:dev\" \"npm run watch\"",
 
-    "preinstall": "npm install -g typings webpack webpack-dev-server concurrently",
+    "preinstall": "npm install -g typings webpack webpack-dev-server copy-webpack-plugin concurrently",
     "postinstall": "npm install typings && npm run build",
 
       "preversion": "npm test",
