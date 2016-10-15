@@ -17,7 +17,7 @@ Good Reading
 
 Demo
 --------------------
-You can see a deployed version running at [Heroku](https://angular2mean.herokuapp.com/). 
+A deployed version of the nodejs server is on [Heroku](http://angular2mean.herokuapp.com/api/recipe). 
 
 Prerequisites
 -------------
