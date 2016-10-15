@@ -129,6 +129,7 @@ server.listen(port);
 
 // Shoutout to the user
 console.log(`Wizardry is afoot on port ${port}`);
+console.log(`Server is running on port ` + process.env.PORT);
 
 // Expose app
 export {app};
