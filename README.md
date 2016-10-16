@@ -1,7 +1,6 @@
-[![Build Status][travis-badge]][travis-badge-url]
+# MEAN Stack Angular 2 Development Starter
 
-MEAN Stack Angular 2 Development Starter
-====================================
+[![Build Status](https://travis-ci.org/rschellius/vulgar.svg?branch=master)](https://travis-ci.org/rschellius/vulgar)
 
 A MEAN stack development kit featuring [Angular 2](https://angular.io).
 Not mine, just forked from [Vulgar](https://github.com/datatypevoid/vulgar).
