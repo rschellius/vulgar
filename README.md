@@ -1,3 +1,5 @@
+[![Build Status][travis-badge]][travis-badge-url]
+
 MEAN Stack Angular 2 Development Starter
 ====================================
 
@@ -63,13 +65,13 @@ Detailed information can be found at the [original Vulgar repo](https://github.c
 Clone this repository:
 
 ```
-git clone [url to this repo]
+git clone --depth 1 https://github.com/rschellius/vulgar.git
 ```
 
 Navigate to the newly created folder:
 
 ```
-cd [cloned repo]
+cd vulgar
 ```
 
 Run the project with:
